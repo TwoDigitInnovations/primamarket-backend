@@ -2645,9 +2645,9 @@ getSellerProductByAdmin: async (req, res) => {
 
       doc.fontSize(10)
         .fillColor('#6b7280')
-        .text('Merk Store', 400, 80, { align: 'right' })
+        .text('Prima Market Store', 400, 80, { align: 'right' })
         .text('Your trusted marketplace', 400, 95, { align: 'right' })
-        .text('merkapp25@gmail.com.com', 400, 110, { align: 'right' });
+        .text('primamarket469@gmail.com', 400, 110, { align: 'right' });
 
       // Invoice details
       doc.fontSize(10)
@@ -2825,7 +2825,7 @@ getSellerProductByAdmin: async (req, res) => {
       doc.fontSize(9)
         .fillColor('#6b7280')
         .text('Thank you for your business!', 50, 750, { align: 'center' })
-        .text('For any queries, contact us at merkapp25@gmail.com', 50, 765, { align: 'center' });
+        .text('For any queries, contact us at primamarket469@gmail.com', 50, 765, { align: 'center' });
 
       // Finalize PDF - this will send the PDF directly to client
       doc.end();
@@ -3219,4 +3219,37 @@ uploadImages: async (req, res) => {
   }
 }
 
+};
+
+
+// Upload images endpoint for product images
+module.exports.uploadImages = async (req, res) => {
+  try {
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({
+        status: false,
+        message: "No images uploaded"
+      });
+    }
+
+    const { uploadToS3 } = require('../services/s3Upload');
+    
+    // Upload all images to S3
+    const uploadPromises = req.files.map(file => uploadToS3(file, 'Prima-easta'));
+    const imageUrls = await Promise.all(uploadPromises);
+
+    return res.status(200).json({
+      status: true,
+      message: "Images uploaded successfully",
+      data: {
+        images: imageUrls
+      }
+    });
+  } catch (error) {
+    console.error("Error uploading images:", error);
+    return res.status(500).json({
+      status: false,
+      message: error.message || "Failed to upload images"
+    });
+  }
 };

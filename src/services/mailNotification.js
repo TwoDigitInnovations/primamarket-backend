@@ -29,7 +29,7 @@ transporter.verify(function (error, success) {
 
 const sendMail = async (to, subject, html) => {
   console.log('Sending email with config:', {
-    from: `Merk App <${process.env.SMTP_EMAIL || 'merkapp25@gmail.com'}>`,
+    from: `Prima market App <${process.env.SMTP_EMAIL || 'primamarket469@gmail.com'}>`,
     to,
     subject,
     hasHtml: !!html
@@ -37,7 +37,7 @@ const sendMail = async (to, subject, html) => {
 
   try {
     const info = await transporter.sendMail({
-      from: `Merk App <${process.env.SMTP_EMAIL || 'merkapp25@gmail.com'}>`,
+      from: `Prima market App <${process.env.SMTP_EMAIL || 'primamarket469@gmail.com'}>`,
       to,
       subject,
       html,
@@ -61,7 +61,7 @@ module.exports = {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Welcome to Merk</title>
+      <title>Welcome to Prima Market</title>
     </head>
     <body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
       <table role="presentation" style="width: 100%; border-collapse: collapse;">
@@ -78,7 +78,7 @@ module.exports = {
                     <div style="position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; background-color: rgba(229, 143, 20, 0.15); border-radius: 50%;"></div>
                     
                     <h1 style="margin: 0; color: #000000; font-size: 42px; font-weight: 700; letter-spacing: -1px; position: relative; z-index: 1;">
-                      Welcome to <span style="color: #E58F14;">Merk</span>
+                      Welcome to <span style="color: #E58F14;">Prima</span>
                     </h1>
                     <p style="margin: 15px 0 0; color: rgba(255, 255, 255, 0.9); font-size: 18px; font-weight: 400; position: relative; z-index: 1;">
                       Your premium shopping experience starts here
@@ -96,7 +96,7 @@ module.exports = {
                   </h2>
                   
                   <p style="margin: 0 0 30px; color: #4a5568; font-size: 16px; line-height: 1.7;">
-                    We're absolutely thrilled to have you join the <strong style="color: #E58F14;">Merk</strong> family! Your account has been successfully created and you're all set to explore our exclusive collection.
+                    We're absolutely thrilled to have you join the <strong style="color: #E58F14;">Prima</strong> family! Your account has been successfully created and you're all set to explore our exclusive collection.
                   </p>
 
                   <!-- Account Details Card -->
@@ -199,7 +199,7 @@ module.exports = {
 
                   <!-- CTA Button -->
                   <div style="text-align: center; margin: 40px 0 20px;">
-                    <a href="${process.env.FRONTEND_URL || 'https://www.merkapp.net'}" 
+                    <a href="${process.env.FRONTEND_URL || 'https://www.primamarket.net'}" 
                        style="display: inline-block; background: linear-gradient(135deg, #E58F14 0%, #f5a623 100%); color: #000000; text-decoration: none; padding: 16px 40px; border-radius: 30px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 15px rgba(229, 143, 20, 0.3); transition: all 0.3s ease;">
                       🛒 Start Shopping Now
                     </a>
@@ -226,7 +226,7 @@ module.exports = {
                     <tr>
                       <td style="text-align: center; color: #64748b; font-size: 12px; line-height: 1.6;">
                         <p style="margin: 0 0 8px;">
-                          <strong style="color: #12344D;">Merk</strong> - Your Premium Shopping Destination
+                          <strong style="color: #12344D;">Prima</strong> - Your Premium Shopping Destination
                         </p>
                         <p style="margin: 0 0 8px;">
                           Unidad 22009Centro Morazan, Blvd Morazan, Tegucigalpa MDC Honduras, 11101
@@ -238,7 +238,7 @@ module.exports = {
                       <td style="text-align: center; padding-top: 20px;">
                         <div style="border-top: 1px solid #e2e8f0; padding-top: 15px;">
                           <p style="margin: 0; color: #94a3b8; font-size: 11px;">
-                            &copy; ${new Date().getFullYear()} Merk. All rights reserved.
+                            &copy; ${new Date().getFullYear()} Prima. All rights reserved.
                           </p>
                         </div>
                       </td>
@@ -254,7 +254,7 @@ module.exports = {
     </body>
     </html>`;
 
-    await sendMail(details.email, `Welcome to Merk, ${firstName}! 🎉`, html);
+    await sendMail(details.email, `Welcome to Prima Market, ${firstName}! 🎉`, html);
   },
 
   sendOTPmail: async ({ email, code }) => {

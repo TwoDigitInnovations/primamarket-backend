@@ -88,7 +88,7 @@ exports.createOrder = async (req, res) => {
           }
         }
       },
-      description: 'Order from Merk Store',
+      description: 'Order from Primamarket Store',
       items: items.map(item => ({
         name: item.name,
         unit_amount: {
@@ -383,7 +383,7 @@ exports.processCardPayment = async (req, res) => {
             }
           }
         },
-        description: 'Order from Merk Store',
+        description: 'Order from Prima market Store',
         items: productDetail.map(item => ({
           name: item.product?.name || item.name || 'Product',
           unit_amount: {

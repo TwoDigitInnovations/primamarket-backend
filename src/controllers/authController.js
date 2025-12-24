@@ -333,7 +333,7 @@ module.exports = {
       
       return res.status(201).json({
         success: true,
-        message: 'Registration successful! Welcome to Merk!',
+        message: 'Registration successful! Welcome to Prima Market!',
         user: userResponse,
       });
     } catch (error) {
